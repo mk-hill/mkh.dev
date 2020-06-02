@@ -1,0 +1,19 @@
+{
+  "name": "mkh.dev",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "build": "node-sass ./src/styles/main.scss ./src/styles/main.css && minify ./src/styles/main.css > ./dist/style.css && minify ./src/script.js > ./dist/script.js",
+    "deploy": "npm run build && aws s3 sync ./dist/ $WEBSITE_BUCKET"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-plugin-import": "^2.20.2",
+    "minify": "^5.1.1",
+    "node-sass": "^4.14.1"
+  }
+}
