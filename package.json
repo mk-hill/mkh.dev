@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "build": "node-sass ./src/styles/main.scss ./src/styles/main.css && minify ./src/styles/main.css > ./dist/style.css && minify ./src/script.js > ./dist/script.js",
-    "deploy": "npm run build && aws s3 sync ./dist/ $WEBSITE_BUCKET"
+    "build": "cp ./src/index.html ./dist/index.html && node-sass ./src/styles/main.scss ./src/styles/main.css && minify ./src/styles/main.css > ./dist/styles/main.css && minify ./src/script.js > ./dist/script.js",
+    "deploy": "npm run build && aws s3 sync ./dist/ $WEBSITE_BUCKET && curl -H \"$AUTH\" -X PATCH $PUBLISH_ENDPOINT"
   },
   "keywords": [],
   "author": "",
