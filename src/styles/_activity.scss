@@ -76,7 +76,7 @@
 
       .activity-detail {
         overflow: hidden;
-        transition: max-height 0.5s ease, padding 0.5s ease;
+        transition: max-height 0.5s ease, padding 0.3s ease;
         margin: 0;
         padding: 0 0 0 1rem;
         font-size: 0.9em;
@@ -109,7 +109,7 @@
         .activity-detail {
           max-height: 10rem;
           padding: 0.5rem 0 0 1rem;
-          max-height: calc(var(--detail-items) * 6rem);
+          max-height: calc(var(--detail-items) * 3rem);
         }
       }
     }
@@ -117,6 +117,11 @@
 }
 
 @media screen and (max-width: $narrow) {
+  #activity-container {
+    max-width: 100%;
+    margin: 5rem 0 0 0;
+    padding: 0;
+  }
   #recent-activity {
     padding: 0.5rem;
 
@@ -134,39 +139,42 @@
       }
 
       &.has-detail {
+        .activity-detail {
+          .activity-detail-item {
+            flex-direction: column-reverse;
+            margin: 0.8rem;
+            padding: 0;
+
+            .activity-detail-item-text {
+              text-align: center;
+            }
+
+            .activity-detail-item-time {
+              opacity: 0.6;
+              margin-bottom: 0.2rem;
+              margin-left: 0;
+            }
+          }
+
+          .activity-detail-item:not(:last-child):after {
+            content: '';
+            width: 60%;
+            height: 1px;
+            background: var(--fg-primary);
+            position: absolute;
+            bottom: -0.8rem;
+            left: 20%;
+            opacity: 0.3;
+          }
+        }
+
         &.collapsed .activity-detail {
           padding: 0 0.3rem 0 0.3rem;
         }
 
         &.expanded .activity-detail {
           padding: 0.3rem 0.3rem 0 0.3rem;
-        }
-
-        .activity-detail-item {
-          flex-direction: column-reverse;
-          margin: 0.8rem;
-          padding: 0;
-
-          .activity-detail-item-text {
-            text-align: center;
-          }
-
-          .activity-detail-item-time {
-            opacity: 0.6;
-            margin-bottom: 0.2rem;
-            margin-left: 0;
-          }
-        }
-
-        .activity-detail-item:not(:last-child):after {
-          content: '';
-          width: 60%;
-          height: 1px;
-          background: var(--fg-primary);
-          position: absolute;
-          bottom: -0.8rem;
-          left: 20%;
-          opacity: 0.3;
+          max-height: calc(var(--detail-items) * 6rem);
         }
       }
     }
