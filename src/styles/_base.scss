@@ -2,12 +2,17 @@ body {
   background-color: var(--bg-primary);
   color: var(--fg-primary);
   max-width: 100%;
+  min-height: 100vh;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   overflow-y: scroll;
   overflow-x: hidden;
   font-family: 'Quicksand', sans-serif;
+}
+
+*:focus {
+  outline: none;
 }
 
 h1 {

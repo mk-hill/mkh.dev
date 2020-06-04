@@ -1,0 +1,24 @@
+#doodle-wrapper {
+  overflow: hidden;
+  max-height: 100vh;
+  position: relative;
+}
+
+css-doodle {
+  position: fixed;
+  top: 0;
+  z-index: -2;
+  will-change: transform;
+}
+
+body::after {
+  content: '';
+  background: var(--bg-primary);
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  z-index: -1;
+  opacity: 0.985;
+}

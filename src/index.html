@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Mike Hill's home page" />
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="./styles/main.css" />
     <title>mkh.dev</title>
@@ -11,19 +12,19 @@
     <main style="display: none;">
       <h1 id="name">Mike Hill</h1>
       <div id="links">
-        <a href="https://www.linkedin.com/in/mk-hill/" target="blank" tabindex="1">
+        <a href="https://www.linkedin.com/in/mk-hill/" target="blank">
           <svg class="link-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
             <use href="#path-linkedin-square"></use>
           </svg>
           <span>/mk-hill</span>
         </a>
-        <a id="address-link" target="blank" tabindex="2">
+        <a id="address-link" target="blank" tabindex="0">
           <svg class="link-icon click-to-populate" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
             <use href="#path-address-square"></use>
           </svg>
           <span class="address"></span>
         </a>
-        <a href="https://github.com/mk-hill" target="blank" tabindex="3">
+        <a href="https://github.com/mk-hill" target="blank">
           <svg class="link-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
             <use href="#path-github-square"></use>
           </svg>
@@ -32,8 +33,7 @@
       </div>
       <section id="activity-container">
         <h3>Recent activity</h3>
-        <ul id="recent-activity">
-        </ul>
+        <ul id="recent-activity"></ul>
       </section>
     </main>
     <!-- SVG icons courtesy of Font Awesome: https://fontawesome.com/license -->
@@ -82,5 +82,9 @@
       </svg>
     </div>
     <script src="./script.js"></script>
+    <script async src="https://unpkg.com/css-doodle@0.8.5/css-doodle.min.js"></script>
+    <div id="doodle-wrapper">
+      <css-doodle></css-doodle>
+    </div>
   </body>
 </html>

@@ -6,6 +6,11 @@
     font-weight: 200;
     @include flexCenter();
 
+    &:hover .link-icon,
+    &:focus .link-icon {
+      transform: translateY(-2px);
+    }
+
     @media screen and (max-width: $narrow) {
       span {
         display: none;
@@ -18,11 +23,6 @@
     transition: transform 0.1s ease;
     margin: 0.5rem;
     transform: translateY(-1px);
-  }
-
-  &:hover .link-icon,
-  &:focus .link-icon {
-    transform: translateY(-2px);
   }
 
   .click-to-populate {

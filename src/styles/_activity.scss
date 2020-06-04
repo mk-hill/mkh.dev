@@ -54,8 +54,9 @@
     }
 
     &:hover .activity-main,
-    &:focus .activity-main,
-    &:hover .activity-main a .activity-item:focus .activity-main a {
+    &:focus-within .activity-main,
+    &:hover .activity-main a,
+    &:focus-within .activity-main a {
       text-shadow: 0 0 0.2px var(--fg-primary);
     }
 
@@ -69,7 +70,7 @@
       }
 
       &:hover .activity-chevron,
-      &:focus .activity-chevron {
+      &:focus-within .activity-chevron {
         color: var(--highlight-primary);
         filter: drop-shadow(0 0 0.4px var(--fg-primary));
       }
@@ -156,7 +157,7 @@
             }
           }
 
-          .activity-detail-item:not(:last-child):after {
+          .activity-detail-item:not(:last-child)::after {
             content: '';
             width: 60%;
             height: 1px;
