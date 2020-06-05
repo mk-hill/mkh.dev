@@ -68,12 +68,14 @@
   }
 
   function paintDoodle(doodle) {
+    const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
     doodle.update(`
       :doodle {
-        @grid: 15 / 100vmax;
-        background: var(--bg-primary);
+        @grid: ${Math.max(6, Math.floor(vw / 200))} / 100vmax;
+        background: transparent;
+       
       }
-      background-color: var(--fg-primary); 
+      background-color: var(--bg-secondary); 
       margin: -0.5px;
       clip-path: polygon(@pick(
         '0 0, 100% 0, 100% 100%',
@@ -86,22 +88,25 @@
         0% {
           transform: rotate(0);
         }
-        10% {
+        18% {
+          transform: rotate(0);
+        }
+        20% {
           transform: rotate(90deg);
         }
-        25% {
+        38% {
           transform: rotate(90deg);
         }
-        30% {
+        40% {
           transform: rotate(180deg);
         }
-        55% {
+        68% {
           transform: rotate(180deg);
         }
-        60% {
+        70% {
           transform: rotate(270deg);
         }
-        95% {
+        98% {
           transform: rotate(270deg);
         }
         100% {
@@ -109,28 +114,67 @@
         }
       }
 
-      transition: @r(3s) ease;
       @random (.08) {
-        background-color: var(--highlight-primary);
-        animation: turn @r(30s, 60s) @pick(
-            cubic-bezier(0.6, -0.28, 0.735, 0.045),
+        background-color: var(--bg-highlight);
+        animation: turn @r(60s, 120s) @pick(
+            cubic-bezier(0.6, -0.28, 0.735, 1.045),
             cubic-bezier(0.68, -0.55, 0.265, 1.55),
             cubic-bezier(0.175, 0.885, 0.32, 1.275),
-            cubic-bezier(0.785, 0.135, 0.15, 0.86))
+            cubic-bezier(0.785, 0.135, 0.45, 0.93))
           infinite;
-        animation-delay: @r(5s);
+        animation-delay: @r(10s);
+        animation-direction: @pick(alternate, alternate-reverse, normal);
       }
+      transition: background-color @r(.2s, .3s) ease;
     `);
+  }
+
+  function createThemeListeners() {
+    const themes = {
+      light: {
+        '--bg-primary': '#dcdcdd',
+        '--bg-secondary': '#d4d7d8',
+        '--bg-highlight': '#cdd7d5',
+        '--fg-primary': '#36393c',
+        '--highlight-primary': '#2a9d8f',
+        '--highlight-secondary': '#11829e',
+      },
+
+      dark: {
+        '--bg-primary': '#212125',
+        '--bg-secondary': '#232327',
+        '--bg-highlight': '#212328',
+        '--fg-primary': '#f8eed9',
+        '--highlight-primary': '#10e0fc',
+        '--highlight-secondary': '#11829e',
+      },
+    };
+
+    const themeButton = document.querySelector('#theme-button');
+    let currentTheme = 'dark';
+
+    themeButton.addEventListener('click', () => {
+      currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      document.body.className = `theme-${currentTheme}`;
+      Object.entries(themes[currentTheme]).forEach(([key, val]) => document.documentElement.style.setProperty(key, val));
+      themeButton.blur();
+    });
   }
 
   function init() {
     createAddressListeners();
     createActivityListeners();
+    createThemeListeners();
+
+    const main = document.querySelector('main');
+    main.style.display = 'flex';
 
     const doodle = document.querySelector('css-doodle');
     if (doodle) paintDoodle(doodle);
 
-    document.querySelector('main').style.display = 'flex';
+    setTimeout(() => {
+      main.style.opacity = '1';
+    }, 0);
   }
-  window.addEventListener('load', init);
+  window.addEventListener('load', () => setTimeout(init, 0));
 })();

@@ -3,7 +3,7 @@
   width: 100%;
 
   a {
-    font-weight: 200;
+    font-weight: 300;
     @include flexCenter();
 
     &:hover .link-icon,
@@ -31,6 +31,6 @@
 
   .address {
     max-width: 0;
-    transition: max-width 1s ease;
+    transition: max-width 1.2s ease;
   }
 }
