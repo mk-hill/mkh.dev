@@ -14,3 +14,5 @@ rules:
   no-use-before-define: warn
   no-await-in-loop: warn
   wrap-iife: off
+  import/prefer-default-export: off
+  max-len: [warn, 132]

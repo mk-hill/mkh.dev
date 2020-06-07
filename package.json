@@ -3,17 +3,42 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "build": "cp ./src/index.html ./dist/index.html && node-sass ./src/styles/main.scss ./src/styles/main.css && minify ./src/styles/main.css > ./dist/styles/main.css && minify ./src/script.js > ./dist/script.js",
+    "start": "webpack-dev-server  --config webpack.dev.js --open",
+    "build": "webpack --config webpack.prod.js",
     "deploy": "npm run build && aws s3 sync ./dist/ $WEBSITE_BUCKET && curl -H \"$AUTH\" -X PATCH $PUBLISH_ENDPOINT"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/clean-webpack-plugin": "^0.1.3",
+    "@types/file-loader": "^4.2.0",
+    "@types/html-webpack-plugin": "^3.2.3",
+    "@types/mini-css-extract-plugin": "^0.9.1",
+    "@types/optimize-css-assets-webpack-plugin": "^5.0.1",
+    "@types/sass-loader": "^8.0.0",
+    "@types/webpack": "^4.41.17",
+    "@types/webpack-dev-server": "^3.11.0",
+    "@types/webpack-merge": "^4.1.5",
+    "clean-webpack-plugin": "^3.0.0",
+    "css-loader": "^3.5.3",
     "eslint": "^6.8.0",
     "eslint-config-airbnb-base": "^14.1.0",
     "eslint-plugin-import": "^2.20.2",
-    "minify": "^5.1.1",
-    "node-sass": "^4.14.1"
+    "file-loader": "^6.0.0",
+    "html-loader": "^1.1.0",
+    "html-webpack-plugin": "^4.3.0",
+    "mini-css-extract-plugin": "^0.9.0",
+    "node-sass": "^4.14.1",
+    "optimize-css-assets-webpack-plugin": "^5.0.3",
+    "sass-loader": "^8.0.2",
+    "style-loader": "^1.2.1",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.11.0",
+    "webpack-merge": "^4.2.2"
+  },
+  "dependencies": {
+    "css-doodle": "^0.8.5"
   }
 }

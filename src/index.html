@@ -5,17 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Mike Hill's home page" />
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400&display=fallback" rel="stylesheet" />
-    <link rel="stylesheet" href="./styles/main.css" />
     <title>mkh.dev</title>
   </head>
   <body>
-    <svg id="theme-button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" tabindex="0">
-      <use id="sun-icon" href="#path-sun"></use>
-      <use id="moon-icon" href="#path-moon"></use>
-    </svg>
     <main style="display: none; opacity: 0;">
+      <svg id="theme-button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" tabindex="0">
+        <use id="sun-icon" href="#path-sun"></use>
+        <use id="moon-icon" href="#path-moon"></use>
+      </svg>
       <h1 id="name">Mike Hill</h1>
-      <div id="links">
+      <section id="links">
         <a href="https://www.linkedin.com/in/mk-hill/" target="blank">
           <svg class="link-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
             <use href="#path-linkedin-square"></use>
@@ -34,7 +33,7 @@
           </svg>
           <span>/mk-hill</span>
         </a>
-      </div>
+      </section>
       <section id="activity-container">
         <h3>Recent activity</h3>
         <ul id="recent-activity"></ul>
@@ -92,11 +91,9 @@
           id="path-chevron"
           fill="currentColor"
           d="M76.8,217.6c0-1.637,0.625-3.274,1.875-4.524L163.75,128L78.675,42.925c-2.5-2.5-2.5-6.55,0-9.05s6.55-2.5,9.05,0  l89.601,89.6c2.5,2.5,2.5,6.551,0,9.051l-89.601,89.6c-2.5,2.5-6.55,2.5-9.05,0C77.425,220.875,76.8,219.237,76.8,217.6z"
-        />
+        ></path>
       </svg>
     </div>
-    <script src="./script.js"></script>
-    <script async src="https://unpkg.com/css-doodle@0.8.5/css-doodle.min.js"></script>
     <div id="doodle-wrapper">
       <css-doodle></css-doodle>
     </div>
